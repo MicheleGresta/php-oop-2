@@ -9,6 +9,18 @@ class Prodotto
     protected $immagine;
     protected $categoria;
 
+    public function __construct(string $categoria)
+    { 
+        if ($categoria === "gatto"){
+            $this->categoria = '<i class="fa-solid fa-cat"></i>';
+        } else if ($categoria === "cane"){
+            $this->categoria = '<i class="fa-solid fa-dog"></i>';
+        } else {
+            $this->categoria = "icona mancante";
+        }
+        
+    }
+
 
     public function getNome()
     {

@@ -48,6 +48,7 @@ include_once __DIR__ . "/ListaProdotti.php";
             ?>
                 <div class="col">
                     <div class="card h-100 p-3">
+                        
                         <h2><?php echo $prodottoSingolo->getNome(); ?></h2>
                         <p><?php echo $prodottoSingolo->getDescrizione(); ?></p>
                         <p>Prezzo: $<?php echo $prodottoSingolo->getPrezzo(); ?></p>
