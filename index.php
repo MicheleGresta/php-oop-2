@@ -54,6 +54,7 @@ include_once __DIR__ . "/ListaProdotti.php";
                         <p>Prezzo: $<?php echo $prodottoSingolo->getPrezzo(); ?></p>
                         <img src="<?php echo $prodottoSingolo->getImmagine(); ?>">
                         <span class="text-center m-auto icona-set"> <?php echo $prodottoSingolo->getCategoria() ?></span>
+                        <span class="text-center m-auto icona-set"> <?php echo $prodottoSingolo->sesso ?></span>
                     </div>
                 </div>
             <?php

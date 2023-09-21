@@ -1,15 +1,16 @@
 <?php
-
+require_once __DIR__ . "../../traits/Sesso.php";
 
 class Prodotto
 {
+    use Sesso;
     protected $nome;
     protected $descrizione;
     protected $prezzo;
     protected $immagine;
     protected $categoria;
 
-    public function __construct(string $categoria)
+    public function __construct(string $categoria, string $sesso)
     { 
         if ($categoria === "gatto"){
             $this->categoria = '<i class="fa-solid fa-cat"></i>';
@@ -17,6 +18,14 @@ class Prodotto
             $this->categoria = '<i class="fa-solid fa-dog"></i>';
         } else {
             $this->categoria = "icona mancante";
+        }
+
+        if ($sesso === "maschio"){
+            $this->sesso = '<i class="fa-solid fa-person"></i>';
+        } else if ($sesso === "femmina"){
+            $this->sesso = '<i class="fa-solid fa-person-dress"></i>';
+        } else {
+            $this->sesso = 'sesso non specificato';
         }
         
     }
