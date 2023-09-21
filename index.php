@@ -10,8 +10,6 @@ include_once __DIR__ . "/ListaProdotti.php";
 
 
 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="it">

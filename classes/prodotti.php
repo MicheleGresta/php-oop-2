@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . "../../traits/Sesso.php";
+//  require_once __DIR__ . "../../exceptions/Exception.php";
+
 
 class Prodotto
 {
@@ -12,12 +14,14 @@ class Prodotto
 
     public function __construct(string $categoria, string $sesso)
     { 
+        
         if ($categoria === "gatto"){
             $this->categoria = '<i class="fa-solid fa-cat"></i>';
         } else if ($categoria === "cane"){
             $this->categoria = '<i class="fa-solid fa-dog"></i>';
-        } else {
-            $this->categoria = "icona mancante";
+        } else {           
+            // throw new ValidationException("ciao");
+            $this->categoria = "animale non specificato";
         }
 
         if ($sesso === "maschio"){
@@ -25,7 +29,8 @@ class Prodotto
         } else if ($sesso === "femmina"){
             $this->sesso = '<i class="fa-solid fa-person-dress"></i>';
         } else {
-            $this->sesso = 'sesso non specificato';
+        //    throw new ValidationException("sesso non specificato");
+            $this->sesso = "sesso non specificato";
         }
         
     }
