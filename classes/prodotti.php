@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . "../../traits/Sesso.php";
-//  require_once __DIR__ . "../../exceptions/Exception.php";
 
 
 class Prodotto
@@ -13,28 +12,34 @@ class Prodotto
     protected $categoria;
 
     public function __construct(string $categoria, string $sesso)
-    { 
-        
-        if ($categoria === "gatto"){
-            $this->categoria = '<i class="fa-solid fa-cat"></i>';
-        } else if ($categoria === "cane"){
-            $this->categoria = '<i class="fa-solid fa-dog"></i>';
-        } else {           
-            // throw new ValidationException("ciao");
+    {
+        try {
+            if ($categoria === "gatto") {
+                $this->categoria = '<i class="fa-solid fa-cat"></i>';
+            } else if ($categoria === "cane") {
+                $this->categoria = '<i class="fa-solid fa-dog"></i>';
+            } else {
+                throw new Exception();
+                // $this->categoria = "animale non specificato";
+            }
+        } catch (Exception $messaggio1) {
             $this->categoria = "animale non specificato";
         }
 
-        if ($sesso === "maschio"){
-            $this->sesso = '<i class="fa-solid fa-person"></i>';
-        } else if ($sesso === "femmina"){
-            $this->sesso = '<i class="fa-solid fa-person-dress"></i>';
-        } else {
-        //    throw new ValidationException("sesso non specificato");
+
+        try {
+            if ($sesso === "maschio") {
+                $this->sesso = '<i class="fa-solid fa-person"></i>';
+            } else if ($sesso === "femmina") {
+                $this->sesso = '<i class="fa-solid fa-person-dress"></i>';
+            } else if ($sesso !== "maschio" ?? $sesso !== "femmina") {
+                throw new Exception();
+                // $this->sesso = "sesso non specificato";
+            }
+        } catch (Exception $messaggio2) {
             $this->sesso = "sesso non specificato";
         }
-        
     }
-
 
     public function getNome()
     {
